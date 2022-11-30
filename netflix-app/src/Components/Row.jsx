@@ -3,20 +3,20 @@ import React, { useState } from 'react';
 import Movie from './Movie'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
 
-const Row = ({title, fetchURL}) => {
+const Row = ({title, fetchURL, rowID}) => {
     const [movies, setMovies] = useState([]);
 
     axios.get(fetchURL).then((response)=>{
         setMovies(response.data.results)
-    },[fetchURL])
+    }, []) //[fetchURL])
     // console.log(movies)
 
     const slideLeft = () => {
-        var slider = document.getElementById('slider')
-        slider.scrollLeft = slider.scrollLeft + 500
+        var slider = document.getElementById('slider' + rowID)
+        slider.scrollLeft = slider.scrollLeft - 500
     };
     const slideRight = () => {
-        var slider = document.getElementById('slider')
+        var slider = document.getElementById('slider' + rowID)
         slider.scrollLeft = slider.scrollLeft + 500
     };
 
@@ -29,7 +29,7 @@ const Row = ({title, fetchURL}) => {
             className='bg-white left-0 rounded-full opacity-50 absolute hover:opacity-100 cursor-pointer z-10 hidden group-hover:block ' 
             size={40} 
         />
-        <div id={'slider'} className='w-full h-full whitespace-nowrap overflow-x-scroll scroll-smooth scrollbar-hide'>
+        <div id={'slider' + rowID} className='w-full h-full whitespace-nowrap overflow-x-scroll scroll-smooth scrollbar-hide'>
             {movies.map((item, id)=>(
                 <Movie key={id} item={item} />
             ))}
