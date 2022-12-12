@@ -13,7 +13,7 @@ const Login = () => {
         e.preventdefault()
         try {
             await logIn(email, password)
-            // navigate('/')
+            navigate('/')
         } catch (error) {
             console.log(error)
             setError(error.message)

@@ -18,7 +18,7 @@ const Signup = () => {
             console.log(error)
         }
     }
-    
+
   return (
         <div className='w-full h-screen'>
             <img className='hidden sm:block absolute w-full h-screen object-cover'
@@ -41,7 +41,7 @@ const Signup = () => {
                                     className='p-3 my-2 bg-gray-700' 
                                     type='password' placeholder='Password' autoComplete='current-password'
                                 />
-                                <button className='bg-red-600 py-3 my-6 rounded'>Sign Up</button>
+                                <button onSubmit={handleSubmit} className='bg-red-600 py-3 my-6 rounded'>Sign Up</button>
                                 <div className='flex justify-between text-gray-500'>
                                     <p><input className='mr-2' type='checkbox' />Remember me</p>
                                     <p>Need help?</p>

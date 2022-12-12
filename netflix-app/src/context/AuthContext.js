@@ -20,21 +20,21 @@ export function AuthContextProvider({ children }){
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
-            setUser(currentUser)
-        })
-        return ()=> {
-            unsubscribe();
-        }
-    });
-
     function logOut(){
         return signOut(auth)
     }
 
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
+            setUser(currentUser)
+        })
+        return () => {
+            unsubscribe();
+        }
+    });
+
     return (
-        <AuthContext.Provider value={{ signUp, user, logIn, logOut }}> 
+        <AuthContext.Provider value={{ signUp, logIn, logOut, user }}> 
             {children}
         </AuthContext.Provider>
     )
