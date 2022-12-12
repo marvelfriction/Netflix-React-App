@@ -34,12 +34,12 @@ export function AuthContextProvider({ children }){
     }
 
     return (
-        <AuthContext.Provider value={{ signUp, user, logIn, logOut }}>
+        <AuthContext.Provider value={{ signUp, user, logIn, logOut }}> 
             {children}
         </AuthContext.Provider>
     )
 }
 
 export function UserAuth() {
-    return useContext(AuthContext)
+    return useContext(AuthContext) 
 }

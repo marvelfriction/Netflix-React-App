@@ -10,7 +10,6 @@ import Account from './Pages/Account';
 
 function App() {
   return (
-    <>
     <AuthContextProvider>
       <Router>
         <Navbar />
@@ -22,7 +21,6 @@ function App() {
         </Routes>
       </Router>
     </AuthContextProvider>
-    </>
   );
 }
 
